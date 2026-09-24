@@ -73,7 +73,19 @@ h1,
 h2,
 h3 {
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.45;
+    text-wrap: balance;
+    line-break: strict;
+    overflow-wrap: anywhere;
+}
+
+/* 意図した位置で折り返すユーティリティ */
+.br-sp {
+    display: none;
+}
+
+.nobr {
+    white-space: nowrap;
 }
 
 .container {
@@ -425,9 +437,14 @@ h3 {
 
 .section__title {
     text-align: center;
-    font-size: clamp(23px, 3.4vw, 33px);
+    font-size: clamp(22px, 3.2vw, 32px);
     font-weight: 900;
     margin-bottom: 12px;
+    line-height: 1.5;
+    letter-spacing: .02em;
+    padding-inline: 4px;
+    text-wrap: balance;
+    line-break: strict;
 }
 
 .tag {
@@ -447,6 +464,11 @@ h3 {
     color: var(--gray);
     font-size: 14px;
     margin: 0 0 40px;
+    line-height: 1.85;
+    text-wrap: pretty;
+    line-break: strict;
+    overflow-wrap: anywhere;
+    padding-inline: 2px;
 }
 
 .section--dark .section__lead {
@@ -1084,7 +1106,7 @@ h3 {
 .faq__q {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 14px;
     background: none;
@@ -1096,6 +1118,14 @@ h3 {
     color: inherit;
     text-align: left;
     cursor: pointer;
+    line-height: 1.5;
+}
+
+.faq__q-text {
+    flex: 1;
+    min-width: 0;
+    text-wrap: balance;
+    line-break: strict;
 }
 
 .faq__icon {
@@ -1103,6 +1133,7 @@ h3 {
     flex: none;
     width: 18px;
     height: 18px;
+    margin-top: 3px;
 }
 
 .faq__icon::before,
@@ -1535,9 +1566,19 @@ h3 {
     }
 
     .section__title {
-        font-size: clamp(20px, 5.8vw, 26px);
+        font-size: clamp(19px, 5.2vw, 24px);
         margin-bottom: 10px;
-        line-height: 1.45;
+        line-height: 1.55;
+        letter-spacing: .01em;
+        padding-inline: 2px;
+    }
+
+    .br-sp {
+        display: revert;
+    }
+
+    .br-pc {
+        display: none;
     }
 
     .tag {
@@ -1549,7 +1590,8 @@ h3 {
     .section__lead {
         margin-bottom: 28px;
         font-size: 13.5px;
-        padding-inline: 4px;
+        padding-inline: 2px;
+        line-height: 1.8;
     }
 
     .hero {
@@ -1558,16 +1600,20 @@ h3 {
 
     .hero__flag {
         margin-bottom: 14px;
-        padding: 8px 14px;
+        padding: 8px 12px;
         font-size: 12px;
         max-width: 100%;
-        line-height: 1.45;
+        line-height: 1.5;
         border-radius: 10px;
+        text-wrap: balance;
+        line-break: strict;
     }
 
     .hero__brand {
         display: inline-block;
-        font-size: clamp(18px, 5vw, 24px);
+        font-size: clamp(17px, 4.8vw, 22px);
+        line-height: 1.5;
+        text-wrap: balance;
     }
 
     .hero__big {
@@ -1579,9 +1625,46 @@ h3 {
     }
 
     .hero__lead {
-        font-size: 14.5px;
+        font-size: 14px;
         margin: 12px 0 24px;
-        line-height: 1.75;
+        line-height: 1.8;
+        text-wrap: pretty;
+        line-break: strict;
+    }
+
+    .form-card__title {
+        font-size: clamp(18px, 5vw, 22px);
+        line-height: 1.5;
+        text-wrap: balance;
+    }
+
+    .form-card__flag {
+        line-height: 1.5;
+        text-wrap: balance;
+    }
+
+    .quote-banner__main {
+        line-height: 1.5;
+        text-wrap: balance;
+    }
+
+    .promise h3,
+    .reason h3,
+    .faq__q,
+    .for-who__title,
+    .compare__subtitle {
+        text-wrap: balance;
+        line-break: strict;
+        line-height: 1.5;
+    }
+
+    .faq__q {
+        font-size: 14px;
+    }
+
+    /* 極小画面では nowrap を解除して溢れを防ぐ */
+    .nobr {
+        white-space: normal;
     }
 
     .hero__lead strong {
@@ -1981,5 +2064,9 @@ h3 {
     .btn--block {
         font-size: 14.5px;
         padding-inline: 14px;
+    }
+
+    .section__title {
+        font-size: 18px;
     }
 }
